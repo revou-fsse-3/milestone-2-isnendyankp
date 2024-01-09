@@ -4,9 +4,9 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="bg-gray-800">
+    <nav className="bg-gray-800 fixed w-full top-0 left-0 z-50">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
+        <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* <!-- Mobile menu button--> */}
             <button
@@ -106,15 +106,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// Progress:
-// 1. cr8 Navbar component
-// 2. edit Navbar with tailwindcss
-// 3. change a tag to button tag & cr8 for button home
-// 4. cr8 for button about including hover style
-// 5. cr8 for button contact including hover style
-// 6. import useNavigate from react-router-dom
-// 7. cr8 navigate variable with useNavigate()
-// 8. add onClick event to button home with navigate('/')
-// 9. add onClick event to button about with navigate('/about')
-// 10. add onClick event to button contact with navigate('/contact')
