@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 type Pokemon = {
   name: string;
@@ -8,11 +9,12 @@ type Pokemon = {
 
 const PokemonListContainer: React.FC = () => {
   const [pokemon, setPokemon] = useState<Pokemon[]>([]);
+  const navigate = useNavigate(); // Initialize navigate
 
   useEffect(() => {
     const fetchPokemon = async () => {
       const response = await axios.get(
-        'https://pokeapi.co/api/v2/pokemon?limit=5'
+        'https://pokeapi.co/api/v2/pokemon?limit=4'
       );
 
       const pokeData: Pokemon[] = response.data.results;
@@ -41,6 +43,12 @@ const PokemonListContainer: React.FC = () => {
           <img src={poke.sprite} alt={poke.name} />
         </div>
       ))}
+      <button
+        onClick={() => navigate('/pokemonSearch')}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Search Pokemon
+      </button>
     </div>
   );
 };
