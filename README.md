@@ -5,21 +5,31 @@ This project milestone 2 learn about react, TSX, Components, Hooks, State, Props
 ## Task & Requirements
 
 1. TSX and Components:
+
     a. Organize your application into modular components.
+    
     b. Use TSX syntax for rendering UI elements.
 
 2. Hooks, State and Props:
+
     a. Implement at least two functional components that use props to pass data.
+
     b. Utilize state to manage dyanmic data within your application.
+
     c. Integrate hooks like useState and useEffect where appropriate.
 
 3. Forms and Evenets:
+
     a. Implement a form to capture user input.
+
     b. Handle form submission events.
+
     c. Validate and manage form data using React State.
 
 4. React Router:
+
     a. Utilize React Router for navigation within your application.
+
     b. Setup multiple routes to different components/pages.
 
 
