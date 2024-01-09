@@ -103,6 +103,13 @@ const Navbar = () => {
                 >
                   Pokemon List
                 </button>
+                {/* Pokemon Search Navbar */}
+                <button
+                  onClick={() => navigate('/pokemonSearch')}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                >
+                  Pokemon Search
+                </button>
               </div>
             </div>
           </div>
