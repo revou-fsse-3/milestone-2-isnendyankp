@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* styling .app for form into center like a normal form */
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(161,166,195);
+  background: linear-gradient(90deg, rgba(161,166,195,1) 47%, rgba(0,250,255,1) 100%);
+}
+
