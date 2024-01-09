@@ -34,6 +34,16 @@ const PokemonListContainer: React.FC = () => {
   return (
     <div className="p-5">
       <h1 className="text-4xl mb-5">Pokemon List:</h1>
+
+      {/* Button navigate to pokemonsearch */}
+      <button
+        onClick={() => navigate('/pokemonSearch')}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Search Pokemon
+      </button>
+      
+      {/* Pokemon List */}
       {pokemon.map((poke) => (
         <div
           key={poke.name}
@@ -43,12 +53,6 @@ const PokemonListContainer: React.FC = () => {
           <img src={poke.sprite} alt={poke.name} />
         </div>
       ))}
-      <button
-        onClick={() => navigate('/pokemonSearch')}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Search Pokemon
-      </button>
     </div>
   );
 };
