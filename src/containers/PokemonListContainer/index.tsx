@@ -3,6 +3,7 @@ import axios from 'axios';
 
 type Pokemon = {
   name: string;
+  sprite: string;
 };
 
 const PokemonListContainer: React.FC = () => {
@@ -13,7 +14,17 @@ const PokemonListContainer: React.FC = () => {
       const response = await axios.get(
         'https://pokeapi.co/api/v2/pokemon?limit=5'
       );
-      setPokemon(response.data.results);
+
+      const pokeData: Pokemon[] = response.data.results;
+
+      for (let poke of pokeData) {
+        const response = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${poke.name}`
+        );
+        poke.sprite = response.data.sprites.front_default;
+      }
+
+      setPokemon(pokeData);
     };
     fetchPokemon();
   }, []);
@@ -27,6 +38,7 @@ const PokemonListContainer: React.FC = () => {
           className="flex items-center justify-between bg-blue-200 border-blue-500 border-solid border-2 p-2 mb-2 rounded-md"
         >
           <p className="text-lg font-semibold">{poke.name}</p>
+          <img src={poke.sprite} alt={poke.name} />
         </div>
       ))}
     </div>
