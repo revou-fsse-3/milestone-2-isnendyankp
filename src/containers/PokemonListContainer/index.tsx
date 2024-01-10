@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
+import { Text } from '../../components';
 
 type Pokemon = {
   name: string;
@@ -33,7 +34,11 @@ const PokemonListContainer: React.FC = () => {
 
   return (
     <div className="p-5">
-      <h1 className="text-4xl mb-5">Pokemon List:</h1>
+      <h1 className="text-4xl mb-5">
+        <Text>
+        Pokemon List
+        </Text>
+      </h1>
 
       {/* Button navigate to pokemonsearch */}
       <button
