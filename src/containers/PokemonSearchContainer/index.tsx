@@ -21,16 +21,20 @@ const PokemonSearchContainer: React.FC = () => {
   const searchPokemon = async () => {
     try {
       const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${search.toLowerCase()}`
+        `https://pokeapi.co/api/v2/pokemon?offset=0&limit=1000`
       );
-      const foundPokemon = response.data;
-
+      const foundPokemon = response.data.results.find(
+        (poke: { name: string }) => poke.name.includes(search.toLowerCase())
+      );
       if (foundPokemon) {
+        const pokemonResponse = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${foundPokemon.name}`
+        );
         setPokemon({
-          name: foundPokemon.name,
-          sprites: foundPokemon.sprites,
-          types: foundPokemon.types,
-          abilities: foundPokemon.abilities,
+          name: pokemonResponse.data.name,
+          sprites: pokemonResponse.data.sprites,
+          types: pokemonResponse.data.types,
+          abilities: pokemonResponse.data.abilities,
         });
       } else {
         setPokemon(null);
