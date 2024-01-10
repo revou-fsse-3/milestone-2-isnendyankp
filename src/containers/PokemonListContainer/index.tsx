@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Text, Button } from '../../components';
 
-type Pokemon = {
+// interface for pokemon
+interface Pokemon {
   id: number;
   name: string;
   sprite: string;
@@ -12,26 +13,38 @@ type Pokemon = {
 };
 
 const PokemonListContainer: React.FC = () => {
+
+  // useState hook
   const [pokemon, setPokemon] = useState<Pokemon[]>([]);
+
+  // useNavigate hook
   const navigate = useNavigate();
 
+  // useEffect hook
   useEffect(() => {
     const fetchPokemon = async () => {
       try {
+        // fetch pokemon list from API
         const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=4');
 
+        // fetch pokemon data from API
         const pokeData: Pokemon[] = await Promise.all(
           response.data.results.map(async (poke: { name: string }) => {
             const pokemonResponse = await axios.get(
               `https://pokeapi.co/api/v2/pokemon/${poke.name}`
             );
+
+            // response.data.abilities is an array of objects
             const abilities = pokemonResponse.data.abilities.map(
               (ability: { ability: { name: string } }) => ability.ability.name
             );
+
+            // response.data.types is an array of objects
             const types = pokemonResponse.data.types.map(
               (type: { type: { name: string } }) => type.type.name
             );
 
+            // return pokemon data
             return {
               id: pokemonResponse.data.id,
               name: poke.name,
