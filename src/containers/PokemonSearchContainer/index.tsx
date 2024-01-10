@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Input } from '../../components';
+import { Input, Button } from '../../components';
 
 type Pokemon = {
   name: string;
@@ -68,12 +68,11 @@ const PokemonSearchContainer: React.FC = () => {
       ) : (
         <p>No Pokemon found.</p>
       )}
-      <button
+      <Button
+        label="Back to Pokemon List"
         onClick={() => navigate('/pokemonList')}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-      >
-        Back to List
-      </button>
+      />
     </div>
   );
 };
