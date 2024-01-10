@@ -8,6 +8,8 @@ type Pokemon = {
   sprites: {
     front_default: string;
   };
+  types: { type: { name: string } }[];
+  abilities: { ability: { name: string } }[];
 };
 
 const PokemonSearchContainer: React.FC = () => {
@@ -19,21 +21,23 @@ const PokemonSearchContainer: React.FC = () => {
   const searchPokemon = async () => {
     try {
       const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon?offset=0&limit=1000`
+        `https://pokeapi.co/api/v2/pokemon/${search.toLowerCase()}`
       );
-      const foundPokemon = response.data.results.find(
-        (poke: { name: string }) => poke.name.includes(search.toLowerCase())
-      );
+      const foundPokemon = response.data;
+
       if (foundPokemon) {
-        const pokemonResponse = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon/${foundPokemon.name}`
-        );
-        setPokemon(pokemonResponse.data);
+        setPokemon({
+          name: foundPokemon.name,
+          sprites: foundPokemon.sprites,
+          types: foundPokemon.types,
+          abilities: foundPokemon.abilities,
+        });
       } else {
         setPokemon(null);
       }
     } catch (error) {
       console.error('Error: Pokemon not found');
+      setPokemon(null);
     }
   };
 
@@ -63,6 +67,15 @@ const PokemonSearchContainer: React.FC = () => {
           />
           <div className="px-6 py-4">
             <h1 className="font-bold text-xl mb-2">{pokemon.name}</h1>
+            <p>
+              Types: {pokemon.types.map((type) => type.type.name).join(', ')}
+            </p>
+            <p>
+              Abilities:{' '}
+              {pokemon.abilities
+                .map((ability) => ability.ability.name)
+                .join(', ')}
+            </p>
           </div>
         </div>
       ) : (
