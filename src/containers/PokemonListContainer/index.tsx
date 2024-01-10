@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Text } from '../../components';
+import { Text, Button } from '../../components';
 
 type Pokemon = {
   name: string;
