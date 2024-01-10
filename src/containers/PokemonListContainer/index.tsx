@@ -4,30 +4,48 @@ import { useNavigate } from 'react-router-dom';
 import { Text, Button } from '../../components';
 
 type Pokemon = {
+  id: number;
   name: string;
   sprite: string;
+  types: string[]; // Add types attribute
+  abilities: string[]; // Add abilities attribute
 };
 
 const PokemonListContainer: React.FC = () => {
   const [pokemon, setPokemon] = useState<Pokemon[]>([]);
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPokemon = async () => {
-      const response = await axios.get(
-        'https://pokeapi.co/api/v2/pokemon?limit=4'
-      );
+      try {
+        const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=4');
 
-      const pokeData: Pokemon[] = response.data.results;
+        const pokeData: Pokemon[] = await Promise.all(
+          response.data.results.map(async (poke: { name: string }) => {
+            const pokemonResponse = await axios.get(
+              `https://pokeapi.co/api/v2/pokemon/${poke.name}`
+            );
+            const abilities = pokemonResponse.data.abilities.map(
+              (ability: { ability: { name: string } }) => ability.ability.name
+            );
+            const types = pokemonResponse.data.types.map(
+              (type: { type: { name: string } }) => type.type.name
+            );
 
-      for (let poke of pokeData) {
-        const response = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon/${poke.name}`
+            return {
+              id: pokemonResponse.data.id,
+              name: poke.name,
+              sprite: pokemonResponse.data.sprites.front_default,
+              types,
+              abilities,
+            };
+          })
         );
-        poke.sprite = response.data.sprites.front_default;
-      }
 
-      setPokemon(pokeData);
+        setPokemon(pokeData);
+      } catch (error) {
+        console.error('Error fetching Pokemon:', error);
+      }
     };
     fetchPokemon();
   }, []);
@@ -35,24 +53,28 @@ const PokemonListContainer: React.FC = () => {
   return (
     <div className="p-5">
       <h1 className="text-4xl mb-5">
-        <Text>
-        Pokemon List
-        </Text>
+        <Text>Pokemon List</Text>
       </h1>
 
       {/* Button navigate to pokemonsearch */}
       <Button
-        label='Pokemon Search'
+        label="Pokemon Search"
         onClick={() => navigate('/pokemonSearch')}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       />
+
       {/* Pokemon List */}
       {pokemon.map((poke) => (
         <div
-          key={poke.name}
+          key={poke.id}
           className="flex items-center justify-between bg-blue-200 border-blue-500 border-solid border-2 p-2 mb-2 rounded-md"
         >
-          <p className="text-lg font-semibold">{poke.name}</p>
+          <div>
+            <p className="text-lg font-semibold">{poke.name}</p>
+            <p>ID: {poke.id}</p>
+            <p>Types: {poke.types.join(', ')}</p>
+            <p>Abilities: {poke.abilities.join(', ')}</p>
+          </div>
           <img src={poke.sprite} alt={poke.name} />
         </div>
       ))}
