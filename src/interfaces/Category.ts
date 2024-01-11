@@ -15,3 +15,11 @@ export interface PokemonSearchData {
   types: { type: { name: string } }[];
   abilities: { ability: { name: string } }[];
 };
+
+export interface PokemonListData {
+  id: number;
+  name: string;
+  sprite: string;
+  types: string[]; // Add types attribute
+  abilities: string[]; // Add abilities attribute
+};

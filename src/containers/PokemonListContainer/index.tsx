@@ -3,14 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Text, Button } from '../../components';
 
-// interface for pokemon
-interface Pokemon {
-  id: number;
-  name: string;
-  sprite: string;
-  types: string[]; // Add types attribute
-  abilities: string[]; // Add abilities attribute
-};
+
+
 
 const PokemonListContainer: React.FC = () => {
 
