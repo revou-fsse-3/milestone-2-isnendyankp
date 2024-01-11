@@ -10,7 +10,7 @@ import { PokemonListData } from '../../interfaces/Category';
 const PokemonListContainer: React.FC = () => {
 
   // useState hook
-  const [pokemon, setPokemon] = useState<Pokemon[]>([]);
+  const [pokemon, setPokemon] = useState<PokemonListData[]>([]);
 
   // useNavigate hook
   const navigate = useNavigate();
