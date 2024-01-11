@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Text, Button } from '../../components';
+import { PokemonListData } from '../../interfaces/Category';
 
 
 
-
+// PokemonListContainer component
 const PokemonListContainer: React.FC = () => {
 
   // useState hook
