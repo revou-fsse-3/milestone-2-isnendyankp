@@ -7,7 +7,7 @@ export interface CategoryData extends CreateCategoryData {
   is_active: boolean;
 }
 
-export interface PokemonListData {
+export interface PokemonSearchData {
   name: string;
   sprites: {
     front_default: string;

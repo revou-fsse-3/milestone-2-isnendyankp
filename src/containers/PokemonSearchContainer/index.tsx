@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { Input, Button } from '../../components';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { PokemonListData } from '../../interfaces/Category';
+import { PokemonSearchData } from '../../interfaces/Category';
 
 // PokemonSearchContainer component
 const PokemonSearchContainer: React.FC = () => {
   // useState hook
   const [search, setSearch] = useState('');
-  const [pokemon, setPokemon] = useState<PokemonListData | null>(null);
+  const [pokemon, setPokemon] = useState<PokemonSearchData | null>(null);
 
   // useNavigate hook
   const navigate = useNavigate();
