@@ -4,21 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { Input, Button } from '../../components';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { PokemonListData } from '../../interfaces/Category';
 
-// interface for pokemon
-interface Pokemon {
-  name: string;
-  sprites: {
-    front_default: string;
-  };
-  types: { type: { name: string } }[];
-  abilities: { ability: { name: string } }[];
-};
-
+// PokemonSearchContainer component
 const PokemonSearchContainer: React.FC = () => {
   // useState hook
   const [search, setSearch] = useState('');
-  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+  const [pokemon, setPokemon] = useState<PokemonListData | null>(null);
 
   // useNavigate hook
   const navigate = useNavigate();
