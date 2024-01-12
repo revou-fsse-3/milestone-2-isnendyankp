@@ -1,6 +1,5 @@
 import './App.css';
-import { LoginContainer, ListContainer, HomeContainer, PokemonListContainer, PokemonSearchContainer } from './containers';
-import CreateCategory from './containers/CreateCategoryContainer';
+import {  PokemonListContainer, PokemonSearchContainer } from './containers';
 import PublicLayout from './layouts/PublicLayout';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -9,12 +8,9 @@ function App() {
     {
       element: <PublicLayout />,
       children: [
-        { path: '/', element: <HomeContainer /> },
-        { path: '/login', element: <LoginContainer /> },
-        { path: '/list', element: <ListContainer /> },
-        { path: '/createCategory', element: <CreateCategory /> },
+        { path: '/', element: <PokemonListContainer /> },
         { path: '/pokemonList', element: <PokemonListContainer /> },
-        { path: '/pokemonSearch', element: <PokemonSearchContainer/> },
+        { path: '/pokemonSearch', element: <PokemonSearchContainer /> },
       ],
     },
     { path: '*', element: <h1>404</h1> },
