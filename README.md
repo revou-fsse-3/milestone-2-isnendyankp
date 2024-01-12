@@ -35,7 +35,7 @@ This project milestone 2 learn about react, TSX, Components, Hooks, State, Props
 
 ## link project
 
-
+https://pokemon9dy.netlify.app/
 
 ## Create Project
 
