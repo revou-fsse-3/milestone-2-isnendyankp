@@ -98,7 +98,7 @@ const PokemonSearchContainer: React.FC = () => {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
         />
       </form>
-            
+
       {/* Pokemon Card */}
       {pokemon ? (
         <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4">
@@ -108,7 +108,7 @@ const PokemonSearchContainer: React.FC = () => {
             alt={pokemon.name}
             className="w-full"
           />
-            
+
           {/* detail */}
           <div className="px-6 py-4">
             {/* name */}
@@ -133,7 +133,7 @@ const PokemonSearchContainer: React.FC = () => {
       {/* Buitton back to list */}
       <Button
         label="Back to Pokemon List"
-        onClick={() => navigate('/pokemonList')}
+        onClick={() => navigate('/')}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
       />
     </div>

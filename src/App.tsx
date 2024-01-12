@@ -9,7 +9,6 @@ function App() {
       element: <PublicLayout />,
       children: [
         { path: '/', element: <PokemonListContainer /> },
-        { path: '/pokemonList', element: <PokemonListContainer /> },
         { path: '/pokemonSearch', element: <PokemonSearchContainer /> },
       ],
     },
