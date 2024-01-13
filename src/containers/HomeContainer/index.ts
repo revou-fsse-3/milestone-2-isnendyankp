@@ -10,6 +10,14 @@ const HomeContainer = () => {
     password: string;
   }
 
+  // useFormik hook
+  const formMik = useFormik<FormProps>({
+    initialValues: {
+      email: '',
+      name: '',
+      password: '',
+    },
+
   return <div>index</div>;
 };
 
