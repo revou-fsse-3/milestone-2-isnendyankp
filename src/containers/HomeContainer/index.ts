@@ -1,9 +1,16 @@
 import React from 'react'
 
-const index = () => {
-  return (
-    <div>index</div>
-  )
-}
+const HomeContainer = () => {
 
-export default index
+
+  // interface for form props
+  interface FormProps {
+    email: string;
+    name: string;
+    password: string;
+  }
+
+  return <div>index</div>;
+};
+
+export default HomeContainer;
