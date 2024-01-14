@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 const HomeContainer = () => {
-
+ 
 
   // interface for form props
   interface FormProps {
@@ -20,6 +20,19 @@ const HomeContainer = () => {
       password: '',
     },
 
+    // onSubmit function for submit form
+    onSubmit: async (values) => {
+      await fetch('https://mock-api.arikmpt.com/api/user/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+      console.log('success');
+      
+    },
+
     // validation for username, email & password
     validationSchema: yup.object({
       name: yup.string().required('name tidak boleh kosong'),
@@ -32,8 +45,10 @@ const HomeContainer = () => {
         .min(8, 'Password minimal 8 karakter')
         .required('Password tidak boleh kosong'),
     }),
-
-  return <div>index</div>;
+  });
+  return (
+    <div>index</div>;
+  );
 };
 
 
