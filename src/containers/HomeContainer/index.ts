@@ -4,7 +4,8 @@ import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 
 const HomeContainer = () => {
- 
+  // useNavigate hook
+  const navigate = useNavigate();
 
   // interface for form props
   interface FormProps {
