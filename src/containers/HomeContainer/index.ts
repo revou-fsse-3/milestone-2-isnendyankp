@@ -32,7 +32,8 @@ const HomeContainer = () => {
         body: JSON.stringify(values),
       });
       console.log('success');
-      
+      // navigate to login container if success register
+      navigate('/login');
     },
 
     // validation for username, email & password
