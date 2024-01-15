@@ -79,7 +79,8 @@ const HomeContainer = () => {
               value={formMik.values.email}
               onChange={formMik.handleChange('email')}
             />
-            
+            {/* add error validation text with yup for input email */}
+            {formMik.errors.email && <Text>{formMik.errors.email}</Text>}
           </div>
         </form>
       </Card>
