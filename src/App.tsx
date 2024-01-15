@@ -1,5 +1,5 @@
 import './App.css';
-import {  PokemonListContainer, PokemonSearchContainer } from './containers';
+import { HomeContainer, PokemonListContainer, PokemonSearchContainer } from './containers';
 import PublicLayout from './layouts/PublicLayout';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -9,6 +9,7 @@ function App() {
       element: <PublicLayout />,
       children: [
         { path: '/', element: <PokemonListContainer /> },
+        { path: '/HomeContainer', element: <HomeContainer /> },
         { path: '/pokemonSearch', element: <PokemonSearchContainer /> },
       ],
     },

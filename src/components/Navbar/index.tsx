@@ -73,6 +73,14 @@ const Navbar = () => {
                   className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
                   aria-current="page"
                 >
+                  Register
+                </button>
+                {/* Home Navbar */}
+                <button
+                  onClick={() => navigate('/')}
+                  className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                  aria-current="page"
+                >
                   Pokemon List
                 </button>
                 {/* Pokemon Search Navbar */}
