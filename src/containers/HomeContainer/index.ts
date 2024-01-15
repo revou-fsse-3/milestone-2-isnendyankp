@@ -50,7 +50,12 @@ const HomeContainer = () => {
     }),
   });
   return (
-    <div>index</div>;
+    // Card component from components folder
+    <Card border={false} className=" ">
+      <Card border>
+
+      </Card>
+    </Card>
   );
 };
 
