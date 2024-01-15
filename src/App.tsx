@@ -1,5 +1,5 @@
 import './App.css';
-import { HomeContainer, PokemonListContainer, PokemonSearchContainer } from './containers';
+import { HomeContainer, LoginContainer, PokemonListContainer, PokemonSearchContainer } from './containers';
 import PublicLayout from './layouts/PublicLayout';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
