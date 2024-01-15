@@ -93,7 +93,8 @@ const HomeContainer = () => {
               value={formMik.values.password}
               onChange={formMik.handleChange('password')}
             />
-            
+            {/* add error validation text with yup for input password */}
+            {formMik.errors.password && <Text>{formMik.errors.password}</Text>}
           </div>
         </form>
       </Card>
