@@ -32,7 +32,7 @@ const HomeContainer = () => {
         body: JSON.stringify(values),
       });
       console.log('success');
-      // navigate to login container if success register
+      // navigate to login page
       navigate('/login');
     },
 
@@ -66,14 +66,14 @@ const HomeContainer = () => {
               value={formMik.values.name}
               onChange={formMik.handleChange('name')}
             />
-            
-          </div>
 
+            {/* add error validation text with yup for input name */}
+            {formMik.errors.name && <Text>{formMik.errors.name}</Text>}
+          </div>
         </form>
       </Card>
     </Card>
   );
 };
-
 
 export default HomeContainer;
