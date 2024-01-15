@@ -50,12 +50,11 @@ const HomeContainer = () => {
     }),
   });
 
-  // render component
+  //  Render component
   return (
-    // Card component from components folder
     <Card border={false} className=" ">
       <Card border>
-        // Form element
+        {/* form element */}
         <form onSubmit={formMik.handleSubmit}>
           {/* Input name */}
           <div className="m-1">
