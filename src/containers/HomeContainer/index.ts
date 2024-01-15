@@ -57,7 +57,18 @@ const HomeContainer = () => {
       <Card border>
         // Form element
         <form onSubmit={formMik.handleSubmit}>
-        
+          {/* Input name */}
+          <div className="m-1">
+            <Text>{'name'}</Text>
+            <Input
+              className="block border-emerald-700 border"
+              name={'name'}
+              value={formMik.values.name}
+              onChange={formMik.handleChange('name')}
+            />
+            
+          </div>
+
         </form>
       </Card>
     </Card>
