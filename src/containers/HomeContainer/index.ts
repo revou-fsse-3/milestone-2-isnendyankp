@@ -96,6 +96,9 @@ const HomeContainer = () => {
             {/* add error validation text with yup for input password */}
             {formMik.errors.password && <Text>{formMik.errors.password}</Text>}
           </div>
+
+          {/* Button Submit */}
+          <Button label={'Submit'} type={'submit'} className={'bg-green-500'} />
         </form>
       </Card>
     </Card>
