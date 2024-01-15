@@ -98,6 +98,13 @@ const HomeContainer = () => {
 
           {/* Button Submit */}
           <Button label={'Submit'} type={'submit'} className={'bg-green-500'} />
+
+          {/* "Login" button */}
+          <Button
+            label={'Login'}
+            onClick={() => navigate('/login')}
+            className={'bg-blue-500 mt-2'}
+          />
         </form>
       </Card>
     </Card>
