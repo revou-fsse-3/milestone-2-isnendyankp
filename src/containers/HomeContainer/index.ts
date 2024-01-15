@@ -82,6 +82,19 @@ const HomeContainer = () => {
             {/* add error validation text with yup for input email */}
             {formMik.errors.email && <Text>{formMik.errors.email}</Text>}
           </div>
+
+          {/* Input Password */}
+          <div className="m-1">
+            <Text>{'Password'}</Text>
+            <Input
+              className="block border-emerald-700 border"
+              name={'password'}
+              type={'password'}
+              value={formMik.values.password}
+              onChange={formMik.handleChange('password')}
+            />
+            
+          </div>
         </form>
       </Card>
     </Card>
