@@ -100,6 +100,13 @@ const LoginPage = () => {
             {formMik.errors.password && <Text>{formMik.errors.password}</Text>}
           </div>
 
+          {/* "Register" button */}
+          <Button
+            label={'Register'}
+            onClick={() => navigate('/')}
+            className={'bg-blue-500 mt-2'}
+          />
+
           {/* Button Login */}
           <Button label={'Login'} type={'submit'} className={'bg-green-500'} />
         </form>
