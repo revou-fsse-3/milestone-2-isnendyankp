@@ -43,7 +43,7 @@ const LoginPage = () => {
           localStorage.setItem('token', data.data.token);
           console.log(data);
           // navigate to list page
-          navigate('/list');
+          navigate('/pokemonList');
         }
       } catch (error) {
         // catch any network error or any error thrown in the fetch call
