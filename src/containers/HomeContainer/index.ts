@@ -49,11 +49,16 @@ const HomeContainer = () => {
         .required('Password tidak boleh kosong'),
     }),
   });
+
+  // render component
   return (
     // Card component from components folder
     <Card border={false} className=" ">
       <Card border>
-
+        // Form element
+        <form onSubmit={formMik.handleSubmit}>
+        
+        </form>
       </Card>
     </Card>
   );
