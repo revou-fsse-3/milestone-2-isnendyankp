@@ -66,9 +66,20 @@ const HomeContainer = () => {
               value={formMik.values.name}
               onChange={formMik.handleChange('name')}
             />
-
             {/* add error validation text with yup for input name */}
             {formMik.errors.name && <Text>{formMik.errors.name}</Text>}
+          </div>
+
+          {/* Input Email */}
+          <div className="m-1">
+            <Text>{'Email'}</Text>
+            <Input
+              className="block border-emerald-700 border"
+              name={'email'}
+              value={formMik.values.email}
+              onChange={formMik.handleChange('email')}
+            />
+            
           </div>
         </form>
       </Card>
